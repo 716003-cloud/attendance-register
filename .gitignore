@@ -1,0 +1,18 @@
+node_modules/
+.DS_Store
+# Android build output / local files
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/capacitor-cordova-android-plugins/
+# synced from www/ by `npx cap sync` (do not commit)
+android/app/src/main/assets/public/
+android/app/src/main/assets/capacitor.config.json
+android/app/src/main/assets/capacitor.plugins.json
+android/app/src/main/res/xml/config.xml
+# NEVER commit signing keys
+*.jks
+*.keystore
+keystore*.txt
+upload-keystore*
