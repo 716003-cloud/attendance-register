@@ -27,7 +27,7 @@ jobs:
       KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
       KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
       KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
-  steps:
+    steps:
       - name: Check signing secrets exist
         env:
           KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
