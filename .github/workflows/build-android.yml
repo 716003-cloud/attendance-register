@@ -45,7 +45,6 @@ jobs:
           distribution: temurin
           java-version: 21
 
-      - uses: android-actions/setup-android@v2
         with:
           accept-android-sdk-licenses: true
 
