@@ -1,14 +1,12 @@
 name: Build Android app (AAB for Play Store + APK)
 
 on:
-  # Manual run: GitHub -> Actions -> "Build Android app" -> Run workflow
   workflow_dispatch:
     inputs:
       version_name:
         description: "Version name shown to users (e.g. 1.0.0)"
         required: true
         default: "1.0.0"
-  # Automatic run when you push a tag such as v1.0.1 (also attaches the APK to a GitHub Release)
   push:
     tags:
       - "v*"
@@ -48,7 +46,7 @@ jobs:
           java-version: 21
 
       - uses: android-actions/setup-android@v3
-      with:
+        with:
           accept-android-sdk-licenses: true
 
       - uses: gradle/actions/setup-gradle@v4
@@ -76,7 +74,7 @@ jobs:
         run: |
           mkdir -p dist
           cp android/app/build/outputs/bundle/release/app-release.aab "dist/attendance-register-${VERSION_NAME}-${VERSION_CODE}.aab"
-          cp android/app/build/outputs/apk/release/app-release.apk  "dist/attendance-register-${VERSION_NAME}-${VERSION_CODE}.apk"
+          cp android/app/build/outputs/apk/release/app-release.apk "dist/attendance-register-${VERSION_NAME}-${VERSION_CODE}.apk"
           ls -la dist
 
       - uses: actions/upload-artifact@v4
